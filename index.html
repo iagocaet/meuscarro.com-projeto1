@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device=width, initial-scale=1.0">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Exercícios HTML</title>
+    </head>
+    <body>
+        <header>
+            <h1>História dos meus Carros<h1>
+        </header>
+        <nav>
+            <a href="primeiro.html">Carro 1</a>
+            <a href="segundo.html">Carro 2</a>
+            <a href="terceiro.html">Carro 3</a>
+        
+        </nav>
+        <section id='conteudo'></section>
+        <footer>
+            <br>
+            Meus carros 
+            
+        </footer>
+        <script>
+            document.querySelectorAll('a').forEach(link => {
+                link.onclick = function(e) {
+                    e.preventDefault()
+                    const conteudo = document.getElementById('conteudo')
+                    fetch(link.href)
+                    .then(resp => resp.text())
+                    .then(html => conteudo.innerHTML = html)
+                }
+            })
+        </script>
+    </body>
+    <style>
+        h1 {
+            font-size: 50px;
+            font-style: italic;
+            font-family: 'Franklin Gothic Medium';
+            background-color: red;
+            text-align: center;
+        }
+        footer { font-size: 25px;
+            text-align: center;
+            font-family:Verdana;}
+            nav {
+                text-align: center;
+                font-size: 35px;
+                ;
+            }
+            
+    </style>
